@@ -1,0 +1,44 @@
+:root {
+  --blue-deep: #06101F;
+  --blue-mid: #0B1E3A;
+  --gold: #C9A84C;
+  --roundel-blue: #00308F;
+  --roundel-red: #C8102E;
+}
+
+body {
+  font-family: 'Barlow Light', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(201,168,76,0.18);
+  padding: 20px;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.button {
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes scan {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.scan-animation {
+  animation: scan 1.5s ease-in-out infinite;
+}
