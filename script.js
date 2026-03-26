@@ -1,1 +1,48 @@
-const aircraftData = [\n    { name: 'F-35A Lightning II', type: 'Multi-Role Stealth Fighter' },\n    { name: 'EA-18G Growler', type: 'Electronic Warfare' },\n    { name: 'C-17A Globemaster III', type: 'Heavy Strategic Airlift' },\n    { name: 'E-7A Wedgetail', type: 'Airborne Early Warning' }\n];\n\nfunction renderAircraftCards() {\n    const gridContainer = document.querySelector('.aircraft-grid');\n    aircraftData.forEach(aircraft => {\n        const card = document.createElement('div');\n        card.className = 'aircraft-card';\n        card.innerHTML = `<h3>${aircraft.name}</h3><p>${aircraft.type}</p>`;\n        gridContainer.appendChild(card);\n    });\n}\n\nconst careerPaths = {\n    'Fighter Pilot': 'https://forms.gle/3iQrdmaxvi4SJjLR6',\n    'Cargo Pilot': 'https://forms.gle/A1DiSQDDphEcWKac9',\n    'Tanker Pilot': 'https://forms.gle/gioyCw7MdzPVF7eM6',\n    'Air Force Crew': 'https://forms.gle/b5ieJinqd9aZU1t28',\n    'Bomber Pilot': 'https://forms.gle/2bLd2MPzfaZj1yvp8'\n};\n\ndocument.addEventListener('DOMContentLoaded', () => {\n    const pathSelectors = document.querySelectorAll('.career-path');\n    pathSelectors.forEach((selector) => {\n        selector.addEventListener('mouseover', () => {\n            selector.classList.add('gold-glow');\n        });\n        selector.addEventListener('mouseout', () => {\n            selector.classList.remove('gold-glow');\n        });\n        selector.addEventListener('click', () => {\n            const path = selector.getAttribute('data-path');\n            window.open(careerPaths[path]);\n        });\n    });\n    renderAircraftCards();\n});
+// Enhanced Aircraft Data
+// This includes a more detailed structure for the aircraft information.
+
+const aircraftData = [
+    {
+        id: 1,
+        name: 'F-35 Lightning II',
+        type: 'Stealth Multirole Fighter',
+        service: 'Royal Australian Air Force',
+        functions: ['Air dominance', 'Intelligence', 'Reconnaissance']
+    },
+    {
+        id: 2,
+        name: 'Boeing P-8 Poseidon',
+        type: 'Maritime Patrol Aircraft',
+        service: 'Royal Australian Air Force',
+        functions: ['Maritime surveillance', 'Anti-submarine warfare']
+    }
+];
+
+// Career Path Linking
+// Linking career paths to respective aircraft types.
+const careerPaths = {
+    'Pilot': ['F-35 Lightning II', 'Boeing P-8 Poseidon'],
+    'Engineer': ['F-35 Lightning II'],
+    'Analyst': ['Boeing P-8 Poseidon']
+};
+
+// Interactive Elements with Event Listeners
+// Implementing hover effects.
+document.querySelectorAll('.aircraft-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        item.classList.add('hovered');
+    });
+    item.addEventListener('mouseleave', () => {
+        item.classList.remove('hovered');
+    });
+});
+
+// Form Navigation
+// Example function for form navigation.
+function navigateToForm(formId) {
+    const currentForm = document.querySelector('.form.active');
+    if (currentForm) {
+        currentForm.classList.remove('active');
+    }
+    document.getElementById(formId).classList.add('active');
+}
