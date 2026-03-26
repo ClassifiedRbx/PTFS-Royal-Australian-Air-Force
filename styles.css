@@ -1,5 +1,4 @@
-:root {
-  /* DISCLAIMER BANNER */
+/* DISCLAIMER BANNER */
 .disclaimer-banner {
   background: linear-gradient(135deg, #C8102E 0%, #C9A84C 100%);
   border-bottom: 4px solid #C8102E;
@@ -40,6 +39,8 @@
     font-size: 0.85rem;
   }
 }
+
+:root {
   --blue-deep: #06101F;
   --blue-mid: #0B1E3A;
   --gold: #C9A84C;
